@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid red;
+        border-collapse: collapse;
+        padding: 5px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <table id="table">
+      <tbody>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Salary</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Steve mehta</td>
+          <td>Rs. 86986</td>
+          <td>
+            <button onclick="moveUp(this.parentNode.parentNode)" class="up">
+              up
+            </button>
+            <button onclick="moveDown(this.parentNode.parentNode)" class="down">
+              down
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Tony sharma</td>
+          <td>Rs. 98760068</td>
+          <td>
+            <button onclick="moveUp(this.parentNode.parentNode)" class="up">
+              up
+            </button>
+            <button onclick="moveDown(this.parentNode.parentNode)" class="down">
+              down
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Mark oberoi</td>
+          <td>Rs. 76608</td>
+          <td>
+            <button onclick="moveUp(this.parentNode.parentNode)" class="up">
+              up
+            </button>
+            <button onclick="moveDown(this.parentNode.parentNode)" class="down">
+              down
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      function moveUp(clickedRow) {
+        var index;
+        var rows = document.getElementById("table").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i] === clickedRow) {
+            index = i;
+            break;
+          }
+        }
+        parent = rows[index].parentNode;
+        if (index > 1) {
+          parent.insertBefore(rows[index], rows[index - 1]);
+        }
+      }
+      function moveDown(clickedRow) {
+        var index;
+        var rows = document.getElementById("table").rows;
+        for (var i = 1; i < rows.length; i++) {
+          if (rows[i] === clickedRow) {
+            index = i;
+            break;
+          }
+        }
+        parent = rows[index].parentNode;
+        if (index < rows.length - 1) {
+          parent.insertBefore(rows[index + 1], rows[index]);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Training web</title>
+    
+  </head>
+  <body class="flex flex-col items-center">
+    <form
+      action=""
+      method="post"
+      class="flex flex-col items-center space-y-3 mt-3"
+    >
+      <span class="text-3xl">Register for newspaper</span>
+      <div class="name w-full flex justify-between">
+        <label for="name" class="px-2 py-1">Name : </label>
+        <input
+          placeholder="name"
+          type="text"
+          name="name"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="address w-full flex justify-between">
+        <label for="address" class="px-2 py-1">Address : </label>
+        <input
+          type="text"
+          placeholder="address"
+          name="address"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="city w-full flex justify-between">
+        <label for="city" class="px-2 py-1">City : </label>
+        <input
+          placeholder="city"
+          type="text"
+          name="city"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="number w-full flex justify-between">
+        <label for="number" class="px-2 py-1">Phone number : </label>
+        <input
+          placeholder="number"
+          type="number"
+          name="number"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="pincode w-full flex justify-between">
+        <label for="pincode" class="px-2 py-1">Pin code : </label>
+        <input
+          type="number"
+          placeholder="pincode"
+          name="pincode"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="type w-full flex justify-between">
+        <label for="typesofnewspaper" class="px-2 py-1"
+          >Type of Newspaper :
+        </label>
+        <select
+          title="type"
+          name="typesofnewspaper"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        >
+          <option value="">Lokmat</option>
+          <option value="">The times of India</option>
+          <option value="">Sakaal</option>
+          <option value="">Hindustan Times</option>
+        </select>
+      </div>
+      <div class="date w-full flex justify-between">
+        <label for="date" class="px-2 py-1">From date : </label>
+        <input
+          placeholder="date"
+          type="date"
+          name="date"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        />
+      </div>
+      <div class="time w-full flex justify-between">
+        <label for="time" class="px-2 py-1">Time : </label>
+        <select
+          title="type"
+          name="typesofnewspaper"
+          id=""
+          class="bg-slate-800 border-2 rounded px-2 py-1"
+        >
+          <option value="">Morning</option>
+          <option value="">Evening</option>
+        </select>
+      </div>
+    </form>
+  </body>
+</html>

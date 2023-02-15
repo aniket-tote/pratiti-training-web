@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: white;
+        font-weight: bold;
+      }
+      .main {
+        width: 100vw;
+        padding: 1rem;
+      }
+      header {
+        background-color: gray;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      nav {
+        margin-top: 1rem;
+        background-color: gray;
+        text-align: center;
+      }
+      ul {
+        display: flex;
+      }
+      ul li {
+        padding: 1rem;
+      }
+      ul li:hover {
+        background-color: white;
+        color: black;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        text-align: center;
+      }
+      .left {
+        background-color: gray;
+        height: calc(100vh - 16.1rem);
+        width: 20%;
+      }
+      section {
+        background-color: gray;
+        height: calc(100vh - 16.1rem);
+        width: calc(60% - 2rem);
+      }
+      .right {
+        background-color: gray;
+        height: calc(100vh - 16.1rem);
+        width: 20%;
+      }
+      footer {
+        background-color: gray;
+        padding: 1.3rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <header>This is header</header>
+      <nav>
+        <ul class="nav" type="none">
+          <li>item 1</li>
+          <li>item 2</li>
+          <li>item 3</li>
+          <li>item 4</li>
+        </ul>
+      </nav>
+      <div class="container">
+        <aside class="left">This is left side</aside>
+        <section>this is main section</section>
+        <aside class="right">This is right side</aside>
+      </div>
+      <footer>This is footer</footer>
+    </div>
+  </body>
+</html>

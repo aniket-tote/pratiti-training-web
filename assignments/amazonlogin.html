@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Tagbanwa&family=Poppins&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Noto Sans Tagbanwa", sans-serif;
+        font-family: "Poppins", sans-serif;
+        font-size: small;
+      }
+      .main {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo {
+        width: 100px;
+        height: max-content;
+      }
+      .form {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        border: 1px solid rgba(128, 128, 128, 0.531);
+        border-radius: 7px;
+      }
+      .heading {
+        font-size: x-large;
+        font-weight: 500;
+      }
+      .inputdiv {
+        margin: 0.7rem 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .input {
+        padding: 5px 10px;
+        margin-top: 0.2rem;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+      .input:focus {
+        outline: none;
+        border-color: #ffa600;
+        box-shadow: 0 0 10px #ffa600;
+      }
+      .continue {
+        background-color: #f3cf75;
+        padding: 5px 0;
+        border: 1px solid brown;
+        border-radius: 4px;
+      }
+      label {
+        font-weight: 700;
+      }
+      .agreenote {
+        margin: 2rem 0;
+      }
+      .divider {
+        width: 60%;
+        height: 1px;
+        background-color: gray;
+        align-self: center;
+      }
+      .signin {
+        margin: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img
+        src="https://logos-world.net/wp-content/uploads/2020/04/Amazon-Logo.png"
+        alt=""
+        class="logo"
+      />
+      <div class="form">
+        <div class="heading">Create Account</div>
+        <div class="name inputdiv">
+          <label for="name">Your name</label>
+          <input
+            type="text"
+            name="name"
+            id=""
+            placeholder="First and last name"
+            class="input"
+          />
+        </div>
+        <div class="email inputdiv">
+          <label for="email">Mobile number or email</label>
+          <input
+            type="text"
+            name="email"
+            id=""
+            placeholder="email"
+            class="input"
+          />
+        </div>
+        <div class="password inputdiv">
+          <label for="email">Password</label>
+          <input
+            type="text"
+            name="password"
+            id=""
+            placeholder="At least 6 characters"
+            class="input"
+          />
+          <span style="font-size: smaller; margin: 0.2rem 0 0 0.5rem"
+            ><span style="color: blue; margin-right: 0.5rem"><i>i</i></span>
+            Passwords must be at least 6 characters</span
+          >
+        </div>
+        <div class="reenterpassword inputdiv">
+          <label for="email">Re-enter Password</label>
+          <input
+            type="text"
+            name="password"
+            id=""
+            placeholder="confirm password"
+            class="input"
+          />
+        </div>
+        <button class="continue">Continue</button>
+        <div class="agreenote">
+          By creating an account, you agree to Amazon's Condition of Use and
+          privacy Notice
+        </div>
+        <div class="divider"></div>
+        <div class="signin">
+          <div class="sign">Already have and account? Sign in</div>
+          <div class="business">
+            Buying for work? Create a free business account
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

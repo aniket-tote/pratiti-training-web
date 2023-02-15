@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+  </head>
+  <body>
+    <progress id="progress" max="100" value="5"></progress>
+    <span id="val" class="text-white"></span>
+    <script>
+      var progress = setInterval(() => {
+        document.getElementById("progress").value =
+          document.getElementById("progress").value + 1;
+
+        document.getElementById("val").innerHTML =
+          document.getElementById("progress").value;
+
+        console.log(document.getElementById("progress").value);
+        if (document.getElementById("progress").value === 100) {
+          document.getElementById("progress").value = 0;
+          //   clearInterval(progress);
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
