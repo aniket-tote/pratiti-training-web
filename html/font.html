@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @media screen and (min-width: 300px) {
+        .shape {
+          background-color: red;
+        }
+      }
+      @media screen and (min-width: 500px){
+        .shape {
+          background-color: blue;
+        }
+      }
+      @media screen and (min-width: 700px) {
+        .shape {
+          background-color: aqua;
+        }
+      }
+      .b {
+        display: flex;
+      }
+      .shape {
+        width: 200px;
+        height: 200px;
+        border-radius: 50px 50px 200px 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">trying new fonts</div>
+    <div class="b">
+      <div class="shape"></div>
+      <!-- <div class="shape"></div> -->
+    </div>
+  </body>
+</html>

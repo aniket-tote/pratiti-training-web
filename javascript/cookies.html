@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="cookies.js"></script> -->
+  </head>
+  <body>
+    <div class="main">
+      <form id="form" action="">
+        <div class="username">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" value="jhon doe" />
+        </div>
+        <div class="password">
+          <label for="password">Password</label>
+          <input type="text" name="password" id="password" value="pass" />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script>
+      window.onload = function () {
+        document.getElementById("form").addEventListener("submit", function () {
+          // saveCookies(
+          //   document.getElementById("username").value,
+          //   document.getElementById("password").value
+          // );
+          deleteCookie();
+          alert(getCookie());
+        });
+      };
+      function saveCookies(username, password) {
+        document.cookie = "username=" + username + ";";
+        document.cookie = "password=" + password + ";";
+      }
+      function getCookie() {
+        let cookielist = decodeURIComponent(document.cookie).split(";");
+        return cookielist;
+      }
+      function deleteCookie() {
+        document.cookie = "username=";
+        document.cookie = "password=";
+      }
+    </script>
+  </body>
+</html>

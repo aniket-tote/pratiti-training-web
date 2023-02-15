@@ -82,13 +82,19 @@
         color: gray;
         font-size: 16px;
         top: 1.3rem;
-        transition: top 0.15s ease;
-        transition: font-size 0.15s ease;
+        transition: all 0.15s ease;
       }
-      .input:focus ~ label {
+      /* .input:focus ~ label {
+        top: 0rem;
+        font-size: small;
+      } */
+
+      input[data-empty="false"] ~ label,
+      input:focus ~ label {
         top: 0rem;
         font-size: small;
       }
+
       input:focus {
         border-bottom: 3px solid #0c4bb1;
       }
@@ -101,9 +107,11 @@
         font-weight: bold;
         color: white;
         background-color: #bb3f03;
-        outline: none;
         border: none;
         border-radius: 2px;
+      }
+      .btn:hover {
+        cursor: pointer;
       }
       .blue {
         color: blue;
