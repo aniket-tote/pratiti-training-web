@@ -1,61 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .main, .other{
-            display: flex;
-            flex-direction: column;
-        }
+      .main,
+      .other {
+        display: flex;
+        flex-direction: column;
+      }
     </style>
     <script src="https://code.jquery.com/Jquery-3.6.3.js"></script>
     <script>
-        $(function () {
-            $("button").click(function(event){
-                navigator.geolocation.getCurrentPosition((position) => {
-                    let lat = position.coords.latitude;
-                    let lon = position.coords.longitude;
-                    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=138b91f7502c917df454a94449df5c18`;
-                    $.ajax({
-                        url: url,
-                        type: "GET",
-                        dataType: "jsonp",
-                        success: function(data){
-                            console.log(data);
-                            $(".temp").append((data.main.temp - 273) + " celcius" );
-                            $(".feelslike").append(Math.round((data.main.feels_like -273),4)+" celcius");
-                            $(".type").append(data.weather[0].main);
-                            $(".description").append(data.weather[0].description);
-                            $(".wind").append(data.wind.speed+"m/s");
-                            $(".pressure").append(data.main.pressure+"hPa");
-                            $(".humidity").append(data.main.humidity+"%");
-                        }
-                    });
+      $(function () {
+        $("button").click(function (event) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", "key.json");
+          xhr.onload = function () {
+            if (xhr.status === 200) {
+              var key = JSON.parse(xhr.responseText).KEY;
+              navigator.geolocation.getCurrentPosition((position) => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`;
+                $.ajax({
+                  url: url,
+                  type: "GET",
+                  dataType: "jsonp",
+                  success: function (data) {
+                    $(".temp").append(data.main.temp - 273 + " celcius");
+                    $(".feelslike").append(
+                      Math.round(data.main.feels_like - 273, 4) + " celcius"
+                    );
+                    $(".type").append(data.weather[0].main);
+                    $(".description").append(data.weather[0].description);
+                    $(".wind").append(data.wind.speed + "m/s");
+                    $(".pressure").append(data.main.pressure + "hPa");
+                    $(".humidity").append(data.main.humidity + "%");
+                  },
                 });
-                
-            })
-        })
+              });
+            }
+          };
+          xhr.send();
+        });
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <button type="button">display weather</button>
-        <div class="details">
-            <div class="main">
-                <span class="temp">temp: </span>
-                <span class="feelslike">feels like:</span>
-                <span class="type">main: </span>
-                <span class="description">description: </span>
-            </div>
-            <div class="other">
-                <span class="wind">wind:</span>
-                <span class="pressure">pressure:</span>
-                <span class="humidity">humidity:</span>
-            </div>
+      <button type="button">display weather</button>
+      <div class="details">
+        <div class="main">
+          <span class="temp">temp: </span>
+          <span class="feelslike">feels like:</span>
+          <span class="type">main: </span>
+          <span class="description">description: </span>
         </div>
+        <div class="other">
+          <span class="wind">wind:</span>
+          <span class="pressure">pressure:</span>
+          <span class="humidity">humidity:</span>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
