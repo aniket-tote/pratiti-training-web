@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/Jquery-3.6.3.js"></script>
+    <script>
+        $(function () {
+            $(".price").hide()
+            $("ul").css("display","flex")
+            $("li").css("margin","2rem")
+
+            // $(".product1").children("button").click(function(){
+            //     // var ele = $("<p/>").text("69").attr("style","color:red");
+            //     // $(".product").after(ele);
+            //     $(".price1").show()
+            //     $(this).hide()
+            // })
+            // $(".product2").children("button").click(function(){
+            //     // var ele = $("<p/>").text("69").attr("style","color:red");
+            //     // $(".product").after(ele);
+            //     $(".price2").show()
+            //     $(this).hide()
+            // })
+            // $(".product3").children("button").click(function(){
+            //     // var ele = $("<p/>").text("69").attr("style","color:red");
+            //     // $(".product").after(ele);
+            //     $(".price3").show()
+            //     $(this).hide()
+            // })
+
+            $("button").click(function(){
+                var productelem = $(this).closest(".product");
+                var ele = $("<p/>").text("$"+productelem.data("price")).attr("style","color:red");
+                // $(".product").after(ele);
+                // $(".price1").show()
+                // $(this).hide()
+                productelem.find("p").remove();
+                productelem.append(ele);
+            })
+        });
+      </script>
+</head>
+<body>
+    <div class="main">
+        <ul type="none">
+            <li class="product product1" data-price = "999">
+                <h2>iPhone 14 Pro</h2>
+                <span class="price price1">$999</span>
+                <button type="button">Get Price</button>
+            </li>
+            <li class="product product2" data-price = "899">
+                <h2>Samsung Galaxy S22+</h2>
+                <span class="price price2">$869</span>
+                <button type="button">Get Price</button>
+            </li>
+            <li class="product product3" data-price = "499">
+                <h2>Moto Edge+</h2>
+                <span class="price price3">$499</span>
+                <button type="button">Get Price</button>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

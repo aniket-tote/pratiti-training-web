@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <script src="https://code.jquery.com/Jquery-3.6.3.js"></script>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid red;
+        border-collapse: collapse;
+        padding: 5px 10px;
+      }
+    </style>
+    <script>
+        $(function(){
+            $(".up").click(function(){
+                var parentRow = $(this).closest("tr");
+                if(parentRow.prev().data("name")!=="heading"){
+                    parentRow.insertBefore(parentRow.prev());
+                }
+            })
+            $(".down").click(function(){
+                var parentRow = $(this).closest("tr");
+                parentRow.insertAfter(parentRow.next());
+            })
+        })
+    </script>
+
+  </head>
+  <body>
+    <table id="table" data-name="table">
+        <tbody>
+            <tr data-name="heading">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+            <tr data-rowname="1">
+                <td>1</td>
+                <td>Steve mehta</td>
+                <td>Rs. 86986</td>
+                <td>
+                    <button class="up">
+                        up
+                    </button>
+                    <button class="down">
+                        down
+                    </button>
+                </td>
+            </tr>
+            <tr data-rowname="2">
+                <td>2</td>
+                <td>Tony sharma</td>
+                <td>Rs. 98760068</td>
+                <td>
+                    <button class="up">
+                        up
+                    </button>
+                    <button class="down">
+                        down
+                    </button>
+                </td>
+            </tr>
+        <tr data-rowname="3">
+            <td>3</td>
+          <td>Mark oberoi</td>
+          <td>Rs. 76608</td>
+          <td>
+              <button class="up">
+                  up
+                </button>
+                <button class="down">
+                    down
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+  </body>
+</html>

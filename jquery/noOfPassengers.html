@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/Jquery-3.6.3.js"></script>
+    <style>
+        .passform{
+            padding: 1rem;
+        }
+        .name, .age{
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            padding: 1rem;
+            border: 1px solid gray;
+        }
+         
+    </style>
+    <script>
+        document.getElementById("form");
+        $(function () {
+            $("#form").submit(function(event){ 
+                event.preventDefault();
+                for (let i = 0; i < $(this).children("input").val(); i++) {
+                    var label1 = $("<label>").text("Passenger "+(i+1)+"'s name:");
+                    var input1 = $("<input>");
+                    var name = $("<div>").addClass("name");
+                    name.append(label1);
+                    name.append(input1);
+
+                    var label2 = $("<label>").text("Passenger "+(i+1)+"'s age: ");
+                    var input2 = $("<input>");
+                    var age = $("<div>").addClass("age");
+                    age.append(label2);
+                    age.append(input2);
+                    
+                    var passform = $("<div>").addClass("passform");
+                    passform.append(name);
+                    passform.append(age);
+
+                    var btn = $("<input>").attr("type","submit").attr("value","submit");
+                        
+                    $(".submitform").append(passform);
+                    // $("ul").append('<div class="passform"><div class="name"><label for="name">Passenger Name</label><input type="text" placeholder="name"></div><div class="age"><label for="name">Passenger Age</label><input type="text" placeholder="age"></div></div>');
+                }
+                $(".submitform").append(btn);
+
+                $(".submitform").submit(function(event){
+                    event.preventDefault();
+                    
+                    $.each(this,function(key,valueObj){
+                        // console.log($(valueObj).children(".name").children("input").val());
+                        // console.log($(valueObj).children(".age").children("input").val());
+                        if(valueObj.value !== "submit"){
+                            $(".details").append(valueObj.value + "<br/>");
+                        }
+                    })
+                })
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="main">
+        <form action="" id="form">
+            <label for="numberofpassengers">Enter No. of Passengers</label>
+            <input type="number" name="numberofpassengers" id="" placeholder="num">
+            <input type="submit" value="Next">
+        </form>
+        <form class="submitform">
+            
+        </form>
+        <div class="details"></div>
+    </div>
+</body>
+</html>

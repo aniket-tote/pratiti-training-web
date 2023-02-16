@@ -6,13 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://code.jquery.com/Jquery-3.6.3.js"></script>
+    <style>
+      .main {
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+        padding: 1rem;
+      }
+    </style>
     <script>
       $(function () {
-        alert("loaded..");
+        $(".zerothp").css("color", "red");
+        // $(".main .firstp").css("color", "blue");
+        $(".main").children(".firstp").css("color", "blue");
+        $($("p").get(2)).css("color","green")
+        $($("p").last()).css("color","pink")
       });
     </script>
   </head>
   <body>
-    <div class="main"></div>
+    <p class="zerothp">zeroth para</p>
+    <div class="main">
+      <p class="firstp">first paragraph</p>
+      <p class="secondp">second para</p>
+    </div>
+    <p class="thirdp">third para</p>
   </body>
 </html>
