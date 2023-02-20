@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  display: flex;
+}
+*{
+  /* border: 1px solid red; */
+  box-sizing: border-box;
 }
 
 .App-logo {
@@ -36,4 +39,18 @@
   to {
     transform: rotate(360deg);
   }
+}
+.login{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form{
+  display: flex;
+  margin: 1rem;
+  flex-direction: column;
+  width: 50%;
 }
