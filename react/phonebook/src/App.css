@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading {
+  margin: 2rem 0;
+  font-size: x-large;
+}
+
+.divider {
+  width: 99%;
+  height: 1px;
+  margin-top: 1rem;
+  background-color: black;
+}
+
+.home {
+  justify-content: space-around;
+  display: flex;
+  padding: 1rem;
+}
+
+.addcontact {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newcontactheading {
+  font-size: larger;
+}
+
+.mycontactsheading {
+  font-size: larger;
+}
+
+input {
+  padding: 7px 14px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+form {
+  width: 100%;
+  padding: 0.2rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.create {
+  height: max-content;
+  width: max-content;
+  background: #0c4bb1;
+  color: white;
+  margin-right: 0.2rem;
+}
+
+.mycontacts {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchbox {
+  padding: 0.5rem 0;
+}
+
+.contactlist {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactLayout {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.contactLayout:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
