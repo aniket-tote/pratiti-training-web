@@ -7,7 +7,7 @@ const Register = () => {
     username: "",
     password: "",
   });
-  const [isvisible, setIsvisible] = useState(false);
+  // const [isvisible, setIsvisible] = useState(false);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -22,7 +22,7 @@ const Register = () => {
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
-          setIsvisible(true);
+          // setIsvisible(true);
           console.log(e);
           //setData({ name: "", email: "", username: "", password: "" });
           for (let i = 0; i < e.nativeEvent.target.length - 1; i++) {
