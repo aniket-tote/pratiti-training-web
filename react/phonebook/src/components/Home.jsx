@@ -16,8 +16,15 @@ const Home = () => {
 
   const [fetchedcontact, setFetchedContact] = useState();
 
+  const [dltIndx, setDltIndx] = useState();
+
   useEffect(() => {
-    console.log(allContacts);
+    console.log(dltIndx);
+  }, [dltIndx]);
+
+  // console.log(dltIndx);
+
+  useEffect(() => {
     localStorage.setItem("allcontacts", JSON.stringify(allContacts));
     setFetchedContact(JSON.parse(localStorage.getItem("allcontacts")));
   }, [allContacts]);
@@ -92,13 +99,15 @@ const Home = () => {
         </div>
         <div className="contactlist">
           {fetchedcontact &&
-            fetchedcontact.map((e) => {
+            fetchedcontact.map((e, t) => {
               return (
                 <Contact
-                  key={e.number + Math.random()}
+                  key={t}
+                  index={t}
                   firstname={e.firstname}
                   lastname={e.lastname}
                   number={e.number}
+                  setDltIndx={setDltIndx}
                 />
               );
             })}

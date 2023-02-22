@@ -1,0 +1,38 @@
+<div class="container">
+  <div>
+    <h1>Veirfy Yourself</h1>
+    <form (ngSubmit)="handlesubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="john-doe"
+          [(ngModel)]="username"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="alterEgo"
+          name="password"
+          placeholder="*****"
+          [(ngModel)]="password"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <div class="details" *ngIf="visible">
+      you have entered <br />
+      username: {{ username }} <br />
+      password: {{ password }}
+    </div>
+  </div>
+</div>

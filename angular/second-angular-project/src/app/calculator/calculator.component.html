@@ -1,0 +1,38 @@
+<div class="container">
+    <div>
+      <h1>Veirfy Yourself</h1>
+      <form>
+        <div class="form-group">
+          <label for="firstnum">firstnum</label>
+          <input
+            type="number"
+            class="form-control"
+            id="firstnum"
+            name="firstnum"
+            placeholder="x"
+            [(ngModel)]="firstnum"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="secondnum">secondnum</label>
+          <input
+            type="number"
+            class="form-control"
+            id="secondnum"
+            name="secondnum"
+            placeholder="y"
+            [(ngModel)]="secondnum"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-success" (click)="handleadd()">Add</button>
+        <button type="submit" class="btn btn-success" (click)="handlesubstract()" style="margin-left: 1rem;">Substract</button>
+      </form>
+      <div class="details" *ngIf="visible">
+        The result is : {{ result }}
+      </div>
+    </div>
+  </div>
+  
