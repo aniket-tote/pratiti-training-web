@@ -1,0 +1,143 @@
+<div class="container">
+  <div>
+    <h1>Register Yourself</h1>
+    <form
+      #registerForm="ngForm"
+      (ngSubmit)="registerForm.valid && handlesubmit()"
+    >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="john doe"
+          [(ngModel)]="user.name"
+          required
+          minlength="3"
+          #name="ngModel"
+        />
+        <div *ngIf="registerForm.submitted" class="alert">
+        <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert"> -->
+          <div *ngIf="name.hasError('required')">Name is required.</div>
+          <div *ngIf="name.hasError('minlength')">
+            Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="johndoe@provider"
+          [(ngModel)]="user.email"
+          required
+          email
+          #email="ngModel"
+        />
+        <div *ngIf="registerForm.submitted" class="alert">
+          <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert"
+        > -->
+          <div *ngIf="email.hasError('required')">Email is required.</div>
+          <div *ngIf="email.hasError('email')">Not a Email.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobileNo">Mobile Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="mobileNo"
+          name="mobileNo"
+          placeholder="999999999"
+          [(ngModel)]="user.mobileNo"
+          required
+          [maxLength]="10"
+          #mobileNo="ngModel"
+          minlength="10"
+        />
+        <div
+          *ngIf="registerForm.submitted"
+          class="alert"
+        >
+        <!-- <div
+          *ngIf="mobileNo.invalid && (mobileNo.dirty || mobileNo.touched)"
+          class="alert"
+        > -->
+          <div *ngIf="mobileNo.hasError('required')">Number is required.</div>
+          <div *ngIf="mobileNo.hasError('minlength')">
+            Number must 10 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="johndoe"
+          [(ngModel)]="user.username"
+          required
+          minlength="5"
+          #username="ngModel"
+        />
+        <div
+          *ngIf="registerForm.submitted"
+          class="alert"
+        >
+        <!-- <div
+          *ngIf="username.invalid && (username.dirty || username.touched)"
+          class="alert"
+        > -->
+          <div *ngIf="username.hasError('required')">username is required.</div>
+          <div *ngIf="username.hasError('minlength')">
+            Name must be at least 5 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="alterEgo"
+          name="password"
+          placeholder="*****"
+          [(ngModel)]="user.password"
+          required
+          minlength="8"
+          #password="ngModel"
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8}$"
+        />
+        <div
+          *ngIf="registerForm.submitted"
+          class="alert"
+        >
+        <!-- <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert"
+        > -->
+          <div *ngIf="password.hasError('required')">password is required.</div>
+          <div *ngIf="password.hasError('pattern')">password is weak.</div>
+          <div *ngIf="password.hasError('minlength')">
+            password must be at least 8 characters long.
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <!-- <div class="details" *ngIf="visible">
+      you have entered <br />
+      username: {{ username }} <br />
+      password: {{ password }}
+    </div> -->
+  </div>
+</div>

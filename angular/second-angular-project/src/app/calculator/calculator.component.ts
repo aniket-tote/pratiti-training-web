@@ -13,12 +13,12 @@ export class CalculatorComponent {
   visible!:boolean;
 
   handleadd(){
-    this.result = this.firstnum + this.secondnum;
+    this.result = Math.round(Math.random()*100);
     this.visible = true;
   }
   
   handlesubstract(){
-    this.result = this.firstnum - this.secondnum;
+    this.result = Math.round(Math.random()*100);
     this.visible = true;
   }
 }
