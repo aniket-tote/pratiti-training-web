@@ -1,0 +1,29 @@
+<div class="container">
+  <div>
+    <h1>Know thy city Weather</h1>
+    <form (ngSubmit)="fetchWeather()">
+      <div class="form-group">
+        <label for="city">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="city"
+          name="city"
+          placeholder="pune"
+          [(ngModel)]="city"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <div class="details" *ngIf="visible">
+      <span class="city">City: {{city}}</span>
+      <br />
+      <span class="Weather">Weather: {{weatherData.weather[0].description}}</span>
+      <br />
+      <span class="Tempreture">
+        Tempreture: {{weatherData.main.temp - 273.15}}
+      </span>
+    </div>
+  </div>
+</div>
