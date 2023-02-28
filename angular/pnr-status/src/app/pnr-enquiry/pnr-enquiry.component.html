@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <h1>Know Status of pnr</h1>
+    <form (ngSubmit)="fetchPnrStatus()">
+      <div>
+        <label for="pnr">Enter Pnr number</label>
+        <input
+          type="text"
+          id="pnr"
+          name="pnr"
+          placeholder="pune"
+          [(ngModel)]="pnr"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <div class="details" *ngIf="visible">
+      <span class="city">{{ pnrData.pnrNo }}</span>
+      <br />
+      <span class="Weather">{{ pnrData.trainNo }}</span>
+      <br />
+      <span class="Tempreture">
+        {{ pnrData.travelDate }}
+      </span>
+    </div>
+  </div>
+</div>
