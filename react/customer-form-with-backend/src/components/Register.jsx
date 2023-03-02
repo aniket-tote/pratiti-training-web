@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// import FormData from "form-data";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -13,11 +14,19 @@ const Register = () => {
       city: "",
       state: "",
     },
+    profilePic: File,
   });
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    let name = e.target.name;
+    let value = e.target.value;
+    if (e.target.type === "file") {
+      value = e.target.files[0];
+    }
+    setData({ ...data, [name]: value });
   };
+
+  // const form = FormData();
 
   return (
     <div className="login">
@@ -28,16 +37,24 @@ const Register = () => {
         className="form"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(data);
+          const formData = new FormData();
+          Object.assign(formData, data);
+          formData.append("profilePic", data.profilePic);
           axios
-            .post(`http://127.0.0.1:8080/register`, data)
+            .post(`http://127.0.0.1:8080/register`, formData, {
+              // headers: {
+              // "Content-Type": "multipart/form-data",
+              // },
+            })
             .then((response) => {
               console.log(response.data);
             });
+
           setData({
             name: "",
             email: "",
             dateOfBirth: "",
+            profilePic: "",
             password: "",
             address: {
               pincode: "",
@@ -122,6 +139,14 @@ const Register = () => {
           id="password"
           value={data.password}
           placeholder="password"
+          onChange={(e) => {
+            handleChange(e);
+          }}
+        />
+        <input
+          type="file"
+          name="profilePic"
+          id="profilePic"
           onChange={(e) => {
             handleChange(e);
           }}
