@@ -75,3 +75,8 @@
   background-color: #ddd;
   color: black;
 }
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+}

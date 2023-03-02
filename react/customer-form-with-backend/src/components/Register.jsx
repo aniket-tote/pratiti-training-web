@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [data, setData] = useState({
@@ -125,7 +126,8 @@ const Register = () => {
             handleChange(e);
           }}
         />
-        <input type="submit" value="login"></input>
+        <input type="submit" value="Register"></input>
+        <Link to="/login">Login here</Link>
       </form>
     </div>
   );
