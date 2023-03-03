@@ -8,13 +8,13 @@ const Register = () => {
     name: "",
     email: "",
     dateOfBirth: "",
+    profilePic: File,
     password: "",
     address: {
       pincode: "",
       city: "",
       state: "",
     },
-    profilePic: File,
   });
 
   const handleChange = (e) => {
@@ -38,13 +38,19 @@ const Register = () => {
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData();
-          Object.assign(formData, data);
+          formData.append("name", data.name);
+          formData.append("email", data.email);
+          formData.append("dateOfBirth", data.dateOfBirth);
           formData.append("profilePic", data.profilePic);
+          formData.append("password", data.password);
+          formData.append("address.city", data.address.city);
+          formData.append("address.pincode", data.address.pincode);
+          formData.append("address.state", data.address.state);
           axios
             .post(`http://127.0.0.1:8080/register`, formData, {
-              // headers: {
-              // "Content-Type": "multipart/form-data",
-              // },
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
             })
             .then((response) => {
               console.log(response.data);
@@ -54,7 +60,7 @@ const Register = () => {
             name: "",
             email: "",
             dateOfBirth: "",
-            profilePic: "",
+            profilePic: File,
             password: "",
             address: {
               pincode: "",
@@ -85,13 +91,13 @@ const Register = () => {
           }}
         />
         <input
-          type="text"
+          type="date"
           name="dateOfBirth"
           id="dateOfBirth"
           value={data.dateOfBirth}
           placeholder="dateOfBirth"
           onChange={(e) => {
-            handleChange(e);
+            setData({ ...data, dateOfBirth: e.target.value.toString() });
           }}
         />
         <input
